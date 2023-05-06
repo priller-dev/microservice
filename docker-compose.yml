@@ -38,13 +38,15 @@ services:
   mongodb:
     image: mongo:5.0.2
     restart: unless-stopped
-    command: mongod --auth
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=aSLJqN22pBluITGH
-      - MONGO_INITDB_DATABASE=testdb
+#    command: mongod --auth
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=root
+#      - MONGO_INITDB_ROOT_PASSWORD=aSLJqN22pBluITGH
+#      - MONGO_INITDB_DATABASE=testdb
     ports:
       - "7017:27017"
+#    volumes:
+#      -  ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
   express:
     build: ./js_project

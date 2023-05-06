@@ -1,20 +1,10 @@
-require('dotenv').config();
-
-const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_PORT,
-  DB_NAME,
-} = process.env;
-
 const express = require('express');
 const mongoose = require('mongoose');
-const mongoString = `mongodb://root:aSLJqN22pBluITGH@mongodb:27017/testdb`;
+const mongoString = "mongodb://mongodb:27017/docker-d";
 const routes = require('./routes/routes');
 
 
-mongoose.connect(mongoString);
+mongoose.connect(mongoString, {useNewUrlParser: true});
 const database = mongoose.connection;
 
 console.log(mongoString)
