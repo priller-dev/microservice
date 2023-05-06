@@ -4,6 +4,10 @@ WORKDIR /app
 
 ENV GO111MODULE=off
 
+COPY go.mod .
+RUN go mod download
+
+
 RUN apk update && apk add --no-cache git
 
 COPY . .
