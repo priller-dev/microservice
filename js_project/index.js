@@ -10,12 +10,14 @@ const {
 
 const express = require('express');
 const mongoose = require('mongoose');
-const mongoString = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
+const mongoString = `mongodb://root:aSLJqN22pBluITGH@mongodb:27017/testdb`;
 const routes = require('./routes/routes');
 
 
 mongoose.connect(mongoString);
 const database = mongoose.connection;
+
+console.log(mongoString)
 
 database.on('error', (error) => {
     console.log(error)
