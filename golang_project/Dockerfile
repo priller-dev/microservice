@@ -2,17 +2,14 @@ FROM golang:1.16-alpine
 
 WORKDIR /app
 
-ENV GO111MODULE=off
-
 COPY go.mod .
+COPY go.sum .
+
 RUN go mod download
-
-
-RUN apk update && apk add --no-cache git
 
 COPY . .
 
-RUN go get
+RUN go build -o main .
 
 EXPOSE 8080
 
